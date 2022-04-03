@@ -36,11 +36,8 @@ class App extends React.Component {
     return false;
   }
 
-  onChangeTab = () => {
-    const {store } = this.props;
-    const { showFavorites } = this.props.store.getState();
-
-    store.dispatch(setShowFavorite(!showFavorites));
+  onChangeTab = (val) => {
+    this.props.store.dispatch(setShowFavorite(val));
   }
 
   render () {
@@ -55,8 +52,8 @@ class App extends React.Component {
       <div className="main">
 
         <div className="tabs">
-          <div className="tab" onClick={this.onChangeTab}>Movies</div>
-          <div className="tab" onClick={this.onChangeTab}>Favorites</div>
+          <div className={`tab ${showFavorites ? '' : 'active'}`} onClick={() => this.onChangeTab(false)}>Movies</div>
+          <div className={`tab ${showFavorites ? 'active' : ''}`} onClick={() => this.onChangeTab(true)}>Favorites</div>
         </div>
 
         <div className="list">
@@ -69,7 +66,7 @@ class App extends React.Component {
                    />
           })}
         </div>
-
+        {displayMovies.length === 0 ? <div className='no-movies'>No Movies To Display</div> : null}
       </div>
     </div>
    );

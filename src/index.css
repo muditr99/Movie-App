@@ -127,11 +127,29 @@ body {
 .favorite-btn {
   background-color: #2185d0;
   color: #fff;
+  cursor: pointer;
 }
 
 .unfavorite-btn {
   background-color: #df3434;
   color: #fff;
+  cursor: pointer;
+}
+
+.main .tabs .active{
+  background: #2185d0;
+  color: #fff;
+}
+
+.main .tabs .active:hover{
+  background: #2185d0;
+  color: #fff;
+}
+
+.no-movies{
+  margin: 10% auto;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 
